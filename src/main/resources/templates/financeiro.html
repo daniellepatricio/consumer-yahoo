@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="stylesheet" href="/css/dataTables.bootstrap.min.css" />
+    <title>Open Topics Report</title>
+</head>
+<body>
+
+    <div class="container-fluid">
+        
+        <div class="row">
+       
+            
+            
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dados Financeiros</h1>
+                </div>
+                <div class="table-responsive">
+                    <table id="financial-table" class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Sigla</th>
+                                <th>Empresa</th>
+                                <th>Idioma</th>
+                                <th>Região</th>
+                                <th>Tipo de Cota</th>
+                                <th>Cota</th>
+                                <th>Moeda</th>                      
+                                <th>Capital</th>
+                                <th>Price Hint</th>
+                                <th>Markert Day Range</th>
+                                <th>PBV</th>
+                                <th>Mercado</th>                                 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="f : ${financesDTO}">
+                                <td th:text="${f.symbol}">1</td>
+                                <td th:text="${f.longName}">1</td>
+                                <td th:text="${f.language}">1</td>
+                                <td th:text="${f.region}">1</td>                                
+                                <td th:text="${f.quoteSourceName}">1</td>
+                                <td th:text="${f.quoteType}">1</td>
+                                <td th:text="${f.financialCurrency}">1</td>                                
+                                <td th:text="${f.marketCap}">1</td>
+                                <td th:text="${f.priceHint}">1</td>
+                                <td th:text="${f.regularMarketDayRange}">1</td>
+                                <td th:text="${f.priceToBook}">1</td>
+                                <td th:text="${f.market}">1</td>                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.dataTables.min.js"></script>
+    <script src="/js/dataTables.bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#financial-table').DataTable();
+        } );
+    </script>
+</body>
+</html>
